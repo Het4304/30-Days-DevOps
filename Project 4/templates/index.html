@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Game Stats</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+        }
+        .game {
+            background: white;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .game h2 {
+            margin-top: 0;
+        }
+        .details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .details div {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NFL Game Stats</h1>
+    </header>
+    <div class="container">
+        {% for game in games %}
+        <div class="game">
+            <h2>{{ game.HomeTeam }} vs {{ game.AwayTeam }}</h2>
+            <p><strong>Status:</strong> {{ game.Status }}</p>
+            <p><strong>Date:</strong> {{ game.DateTime }}</p>
+            <p><strong>Stadium:</strong> {{ game.StadiumDetails.Name }} ({{ game.StadiumDetails.City }}, {{ game.StadiumDetails.State }})</p>
+            <div class="details">
+                <div><strong>Home Team:</strong> {{ game.HomeTeam }}</div>
+                <div><strong>Score:</strong> {{ game.HomeScore }}</div>
+                <div><strong>Away Team:</strong> {{ game.AwayTeam }}</div>
+                <div><strong>Score:</strong> {{ game.AwayScore }}</div>
+                <div><strong>Attendance:</strong> {{ game.Attendance }}</div>
+                <div><strong>Forecast:</strong> {{ game.ForecastDescription }}, High: {{ game.ForecastTempHigh }}°F, Low: {{ game.ForecastTempLow }}°F</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
