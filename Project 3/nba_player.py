@@ -11,7 +11,7 @@ glue_database_name = "testdatademoglue_nba_data_lake"
 athena_output_location = f"s3://{bucket_name}/athena-results/"
 
 # Sportsdata.io configurations (loaded from .env)
-api_key = "dde4c4f054404a468f02e386a2bf96ec"  # Get API key from .env
+api_key = "apikey"  # Get API key from .env
 nba_endpoint = "https://api.sportsdata.io/v3/nba/scores/json/Players"  # Get NBA endpoint from .env
 
 # Create AWS clients
